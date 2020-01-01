@@ -18,7 +18,6 @@ class TriviaTestCase(unittest.TestCase):
         self.database_path = "postgres://{}:{}@{}/{}".format(
             'postgres', 'psql', 'localhost:5432', self.database_name)
         setup_db(self.app, self.database_path)
-        
         self.new_question = {
             'question': 'New question',
             'answer': 'New answer',
@@ -46,9 +45,9 @@ class TriviaTestCase(unittest.TestCase):
 
     """
     TODO
-    Write at least one test for each test for successful operation and for expected errors.
+    Write at least one test for each test for
+    successful operation and for expected errors.
     """
-
 
     def test_get_categories(self):
         res = self.client().get('/categories')
@@ -108,8 +107,6 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(data['success'], False)
         self.assertEqual(data['error'], 404)
         self.assertTrue(data['message'])
-
-    
 
     def test_get_category_not_found(self):
         res = self.client().get('/categories/999')
@@ -215,6 +212,8 @@ class TriviaTestCase(unittest.TestCase):
         self.assertTrue(data['message'])
 
 # Make the tests conveniently executable
+
+
 if __name__ == "__main__":
     unittest.main()
 
